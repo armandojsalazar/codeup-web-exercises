@@ -2,7 +2,94 @@
 this file is named "site.css" and is in a directory named "css"
 */
 
-.fancy-header {
-    color: purple;
+/*.fancy-header {*/
+/*    color: purple;*/
+/*    text-decoration: underline;*/
+/*}*/
+
+/*.danger {*/
+/*    color: red;*/
+/*}*/
+
+/*div:hover {*/
+/*    background-color: green;*/
+/*}*/
+
+/*p {*/
+/*    color: blue;*/
+/*}*/
+
+/*.right-just {*/
+/*    font-size: 3em;*/
+/*    text-align: right;*/
+/*    font-family: "Times New Roman", Times, Serif;*/
+/*    color: black;*/
+/*}*/
+
+/*#override {*/
+/*    color: inherit;*/
+/*}*/
+#top {
+    text-align: center;
     text-decoration: underline;
+}
+
+h2 {
+    text-decoration: underline;
+    color: darkblue;
+}
+
+body {
+    background-color: dodgerblue;
+    font-family: Cursive, Times, Serif;
+}
+
+body {
+    background-image: url("../IMG/snow_mt.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+table {
+    background-color: dimgray;
+}
+td, tr {
+    font-size: 15px;
+    padding: 10px;
+    font-weight: bolder;
+}
+
+th{
+    font-size: 20px;
+    padding: 15px;
+}
+
+a:hover {
+    color: darkred;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+a:link {
+    color: blue;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: violet;
+    text-decoration: none;
+}
+
+a:active {
+    color: greenyellow;
+    text-decoration: none;
+}
+
+footer {
+    text-align: right;
 }
