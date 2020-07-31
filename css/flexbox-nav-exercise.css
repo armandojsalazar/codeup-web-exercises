@@ -2,6 +2,7 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 body {
     font-family: "Work Sans", sans-serif;
@@ -10,7 +11,6 @@ body {
     width: auto;
     height: 60px;
     margin: auto 0;
-    box-sizing: border-box;
     background-color: grey;
     display: flex;
     align-items: center;
