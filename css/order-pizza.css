@@ -1,0 +1,14 @@
+.nav-link {
+    color: black;
+}
+.jumbotron {
+    background-image: url("../IMG/pizza.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.container {
+    text-align: center;
+    width: 100%;
+    background-color: #DDDDDD;
+    opacity: 70%;
+}
