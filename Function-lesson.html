@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Lesson</title>
+</head>
+<body>
+<script>
+    dogBreed("Siberian Husky");
+    dogBreed("Great Dane");
+    dogBreed("Pitbull");
+
+    function dogBreed(name) {
+        console.log("My all time favorite dog breed is " + name)
+    }
+
+    var color = "Orange";
+    console.log("My favorite color is " + color);
+
+    // favoriteColor(); won't work, not yet defined
+    var favoriteColor = function() {
+        var question = "What is your favorite color?";
+        var response = prompt(question);
+        alert("Great, " + response + " is my favorite color too!");
+
+    }
+    favoriteColor();
+    console.log(typeof favoriteColor)
+
+</script>
+</body>
+</html>
