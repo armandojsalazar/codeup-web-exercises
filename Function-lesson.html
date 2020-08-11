@@ -6,6 +6,13 @@
 </head>
 <body>
 <script>
+
+    //define a function and immediately invoke (i.e. call) it
+    (function(){
+        "use strict";
+        var iffeVar = "I'm local to the IIFE.";
+    })();
+
     dogBreed("Siberian Husky");
     dogBreed("Great Dane");
     dogBreed("Pitbull");
@@ -14,18 +21,34 @@
         console.log("My all time favorite dog breed is " + name)
     }
 
-    var color = "Orange";
-    console.log("My favorite color is " + color);
+    var favoriteColor = "Orange";
+    console.log("My favorite color is " + favoriteColor);
+    var adjective = "phenomenal"
 
     // favoriteColor(); won't work, not yet defined
-    var favoriteColor = function() {
+    var favoriteColor = function(color) {
         var question = "What is your favorite color?";
         var response = prompt(question);
-        alert("Great, " + response + " is my favorite color too!");
-
+        alert("Great, " + response + " is " + adjective + " but " + color + " is my favorite color!");
+        return response;
     }
-    favoriteColor();
+
+    favoriteColor("orange");
     console.log(typeof favoriteColor)
+
+    var x = 300;
+    var y = 100;
+
+    function scopeExample() {
+        var x = 1;
+        var y = 2;
+        console.log('x: ' + x + ' y: ' + y); // x:1 y:2
+        return x + y;
+    }
+
+    console.log('x: ' + x + ' y: ' + y); // x:300 y:100
+    var returnValue = scopeExample();
+    console.log(returnValue); // 3
 
 </script>
 </body>
