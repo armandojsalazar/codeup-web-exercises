@@ -19,11 +19,24 @@ alert("Welcome to my web page!");
 //
 // console.log(mermaid, bear, hercules, rentalCost, totalCost);
 
-var googleRate = 400;
-var amazonRate = 380;
-var facebookRate = 350;
-var googleHours = prompt("How many hours did you work for Google this week?")
-var amazonHours = prompt("How many hours did you work for Amazon this week?")
-var facebookHours = prompt("How many hours did you work for Facebook this week?")
-var weeksPay = ((Number(googleHours) * googleRate) + (Number(amazonHours) * amazonRate) + (Number(facebookHours) * facebookRate))
-console.log("You made $" + weeksPay + " this week!")
+// var googleRate = 400;
+// var amazonRate = 380;
+// var facebookRate = 350;
+// var googleHours = prompt("How many hours did you work for Google this week?")
+// var amazonHours = prompt("How many hours did you work for Amazon this week?")
+// var facebookHours = prompt("How many hours did you work for Facebook this week?")
+// var weeksPay = ((Number(googleHours) * googleRate) + (Number(amazonHours) * amazonRate) + (Number(facebookHours) * facebookRate))
+// console.log("You made $" + weeksPay + " this week!")
+
+var classCapacity = 30;
+var registeredStudents = 20;
+var classConflicts = true;
+var canEnroll = (classCapacity > registeredStudents) && !classConflicts;
+alert("Student able to register for class: " + canEnroll);
+
+var offerNotExpired = confirm("Press ok if offer not expired.");
+var numberItems = prompt("how many items are you purchasing?");
+var premiumMembership = confirm("Press ok if you're a Premium Member.");
+var offerApplied = (numberItems > 2 || premiumMembership) && offerNotExpired;
+confirm("Offer applied: " + offerApplied);
+console.log("Offer applied: " + offerApplied);
