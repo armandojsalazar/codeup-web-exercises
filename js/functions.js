@@ -11,10 +11,11 @@
 sayHello("Codeup");
 
 function sayHello(name) {
-    return "Hello " + name + "!";
-
+    var message = "Hello " + name + "!";
+    return message
 }
 
+console.log(sayHello("Codeup"))
 /**
  * TODO:
  * Call the function 'sayHello' and pass your name as a string literal argument.
@@ -61,13 +62,13 @@ var random = Math.floor((Math.random() * 3) + 1);
 // isTwo(1)
 // isTwo(2)
 // isTwo(3)
-isTwo(random)
 
 function isTwo(number) {
-    return console.log(number == 2);
+    var answer = number === 2;
+    return answer;
 }
-
-console.log(random);
+isTwo(random)
+console.log("The Random number is: " + random);
 
 /**
  * TODO:
@@ -80,11 +81,10 @@ console.log(random);
  * > calculateTip(0.25, 25.50) // returns 6.375
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
-
-function calculateTip(bill, percent) {
-    var tip = bill * percent
-    return Number(tip);
-}
+const calculateTip = function calculateTip(bill, percent) {
+                        var tip = bill * percent
+                            return Number(tip);
+                    }
 // calculateTip(20, .15);
 // calculateTip(60, .25);
 // calculateTip(33.42, .15);
@@ -96,7 +96,7 @@ function calculateTip(bill, percent) {
  */
 var bill = prompt(" How much is your bill total?");
 
-var percent = prompt("How much of a percent would you like to tip?");
+var percent = prompt("How much of a percent would you like to tip? (i.e. \".18\"");
 
 alert("You should tip: $" + calculateTip(bill, percent));
 
@@ -114,13 +114,13 @@ alert("You should tip: $" + calculateTip(bill, percent));
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
-var price = 100;
-var discount = .2;
+
 
 
 function applyDiscount(price, discount) {
     var discountTotal = price - (price * discount);
-    return Number(discountTotal);
+    return discountTotal;
 }
-
-alert(applyDiscount(price, discount));
+var price = prompt("What is the price of the product?");
+var discount = prompt("What is the discount you want to apply?");
+alert("Your price after the discount is: $" + applyDiscount(price, discount));
