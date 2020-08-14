@@ -200,19 +200,19 @@ var totalAmount = prompt("What's your total price?")
 
 function calculateTotal(luckyNumber, totalAmount) {
     if (luckyNumber === 1){
-        alert("Your Lucky Number is: " + luckyNumber + ". Your total price is: " + totalAmount + ". Congratulations! You receive a 10% Discount! Your new price is: $" + (totalAmount(totalAmount * .1)));
+        alert("Your Lucky Number is: " + luckyNumber + ". Your price before discount is: " + totalAmount + ". Congratulations! You receive a 10% Discount! Your new price is: $" + (totalAmount(totalAmount * .1)));
     }
     else if (luckyNumber === 2) {
-         alert("Your Lucky Number is: " + luckyNumber + ". Your total price is: " + totalAmount + ". Congratulations! You receive a 25% Discount! Your new price is: $" + (totalAmount(totalAmount * .25)));
+         alert("Your Lucky Number is: " + luckyNumber + ". Your price before discount is: " + totalAmount + ". Congratulations! You receive a 25% Discount! Your new price is: $" + (totalAmount(totalAmount * .25)));
     }
     else if(luckyNumber === 3){
-         alert("Your Lucky Number is: " + luckyNumber + ". Your total price is: " + totalAmount + ". Congratulations! You receive a 35% Discount! Your new price is: $" + (totalAmount - (totalAmount * .35)));
+         alert("Your Lucky Number is: " + luckyNumber + ". Your price before discount is: " + totalAmount + ". Congratulations! You receive a 35% Discount! Your new price is: $" + (totalAmount - (totalAmount * .35)));
     }
     else if(luckyNumber === 4){
-         alert("Your Lucky Number is: " + luckyNumber +". Your total price is: " + totalAmount + ". Congratulations! You receive a 50% Discount! Your new price is: $" + (totalAmount * .50));
+         alert("Your Lucky Number is: " + luckyNumber +". Your price before discount is: " + totalAmount + ". Congratulations! You receive a 50% Discount! Your new price is: $" + (totalAmount * .50));
     }
     else if(luckyNumber === 5) {
-         alert("Your Lucky Number is: " + luckyNumber +". Your total price is: " + totalAmount + ". Congratulations! You receive a 100% Discount! Your don't have to pay for anything");
+         alert("Your Lucky Number is: " + luckyNumber +". Your price before discount is: " + totalAmount + ". Congratulations! You receive a 100% Discount! Your don't have to pay for anything");
     }
     else{
          alert("Your Lucky Number is: " + luckyNumber + ". Sorry, but you didn't receive a discount. Your total price is: $" + totalAmount);
@@ -236,3 +236,19 @@ calculateTotal(luckyNumber, totalAmount);
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+function playAGame(){
+    var playGame = confirm("Would you like to play a game?");
+    if (playGame) {
+        var userNumber = prompt("Please enter a whole number without decimals:")
+        if(isNaN(userNumber)){
+            alert("That was not a number. Refresh Screen and try again.")
+        } else {
+            var evenOdd = (userNumber % 2 === 0) ? "Your number is even." : "Your number is odd."
+            var positiveNegative = (userNumber > 0) ? "Your number is positive" : "Your number is negative"
+            alert(evenOdd)
+            alert(positiveNegative)
+            alert("Your number plus 100 is " + (parseInt(userNumber) + 100))
+        }
+    } else alert("Party pooper!")
+}
+playAGame();
