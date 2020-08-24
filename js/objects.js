@@ -11,6 +11,18 @@
      *  > console.log(person.firstName) // "Rick"
      *  > console.log(person.lastName) // "Sanchez"
      */
+var person = {
+    firstName: "Armando",
+    lastName: "Salazar",
+        sayHello: function () {
+            console.log("Hello from " + person.firstName + " " + person.lastName + "!");
+        }
+    };
+
+    console.log(person.firstName);
+    console.log(person.lastName);
+
+
 
     /**
      * TODO:
@@ -21,7 +33,7 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
-
+    console.log(person.sayHello());
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
      * more than $200. If a shopper spends more than $200, they get a 12%
@@ -36,11 +48,23 @@
      * and console.log the relevant messages for each person
      */
 
-    // var shoppers = [
-    //     {name: 'Cameron', amount: 180},
-    //     {name: 'Ryan', amount: 250},
-    //     {name: 'George', amount: 320}
-    // ];
+    var shoppers = [
+        {name: 'Cameron', amount: 180},
+        {name: 'Ryan', amount: 250},
+        {name: 'George', amount: 320}
+    ];
+
+    shoppers.forEach(function (shopper){
+        if(shopper.amount > 200) {
+            console.log("Congrats! You're eligible for a 12% discount");
+            console.log("Shopper: " + shopper.name);
+            console.log(shopper.name + " total before discount is $" + shopper.amount + ".");
+            console.log("Shopper's Total after the discount is $" + Number(shopper.amount - (shopper.amount * .12)) + ".");
+        }else {
+            console.log(shopper.name + " does not qualify for discount. Shopper has only spent $" + shopper.amount)
+            console.log("Shopper needs to spend at least $" + (200 - shopper.amount) + " to qualify for discount." )
+        }
+    })
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -54,6 +78,55 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+var books = [
+        {
+         title: "Harry Potter and the Goblet of Fire",
+            author: {
+            firstName: "J.K.",
+            lastName: "Rowland"
+        },
+        },
+        {
+            title: "Queen of Shadows",
+            author: {
+                firstName: "Sarah",
+                lastName: "Maas"
+            }
+        },
+        {
+            title: "Midnight Sun",
+            author: {
+                firstName: "Stephenie",
+                lastName: "Meyer"
+            }
+        },
+        {
+            title: "My Hero Academia",
+            author: {
+                firstName: "Kohei",
+                lastName: "Horikoshi"
+            }
+        },
+        {
+            title: "Demon Slayer: Kimetsu no Yaiba",
+            author: {
+                firstName: "Koyoharu",
+                lastName: "Gotouge"
+            }
+        },
+        /*{
+        createBook: function() {
+        books.title = prompt("What book have your read?");
+            books.author.firstName = prompt("What is the Author's First Name?");
+            books.author.lastName = prompt("What's is the Author's Last Name?")
+            alert("The book you have read is: \n" + "Title: " + books.title + "\n" + "Author: " + books.author.firstName + " " + books.author.lastName)
+    }
+    }*/
+    ];
+    console.log(books[4].title);
+    console.log(books[4].author.firstName);
+    console.log(books[4].author.lastName);
+    // console.log(books[5].createBook());
 
     /**
      * TODO:
@@ -79,6 +152,12 @@
      *      ---
      *      ...
      */
+    // for(let i = 0; i < books.length; i++){
+    //     console.log("Book # " + (i + 1));
+    //     console.log("Title: " + books[i].title);
+    //     console.log("Author: " + books[i].author.firstName + " " + books[i].author.lastName);
+    //
+    // }
 
     /**
      * Bonus:
@@ -91,4 +170,53 @@
      *   `showBookInfo` function.
      */
 
+    // function createBook() {
+    //     var title = prompt("Please enter a Title of a book you have read:");
+    //     var authorFirst = prompt("What is the Author's First Name?");
+    //     var authorLast = prompt("What is the Author's Last Name?");
+    //         alert("The book you have read is: \n" + "Title: " + title + "\n" + "Author: " + authorFirst + " " + authorLast)
+    //
+    // }
+    //
+    // createBook();
+
+        //Daniel's example
+        // var createBook = function (title, firstName, lastName) {
+        //     var book = {};
+        //     book.title = title;
+        //     book.author = {
+        //         firstName: firstName,
+        //         lastName: lastName
+        //     }
+        //     return book;
+        // }
+        // books.push(createBook("Call Sign Chaos", "Jim", "Mattis"))
+
+    var createBook = function (title, firstName, lastName){
+            var book = {};
+            title = prompt("Book title: ")
+            firstName = prompt("Author first name: ")
+            lastName = prompt("Author last name:")
+            book.title = title;
+            book.author = {
+                firstName: firstName,
+                lastName: lastName,
+            };
+            return book;
+        }
+    books.push(createBook());
+
+    var showBookInfo = function(book, bookNumber) {
+        console.log("Book: " + bookNumber);
+        console.log("Title: " + book.title);
+        console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+        console.log("---------")
+    }
+    books.forEach(function(book, i){
+        console.log("Book #" + (i + 1));
+        console.log("Title: " + book.title);
+        console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+        console.log("---------")
+
+    })
 })();
