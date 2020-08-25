@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM DOM</title>
+</head>
+<body bgcolor="#faebd7">
+<p id="p1">To be or not to be?</p>
+<p id="p2" data-playname="Hamlet">That is the question.</p>
+<script>
+    "use strict";
+    (function() {
+        var para1 = document.getElementById("p1");
+        para1.setAttribute("style", "font-size: 4rem");
+
+        var para2 = document.getElementById("p2");
+    var dataAttr =para2.getAttribute('data-playname');
+
+
+
+       alert(dataAttr)
+
+        // Change the style of p1 to 'font-size: 4rem'
+        // Get the data-* attribute from p2
+        // Print the data-* attribute on the console log.
+    })();
+</script>
+</body>
+</html>

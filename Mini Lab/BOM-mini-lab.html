@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM BOM</title>
+</head>
+<body>
+<h1>BOM BOM</h1>
+<h1>This is a demo page</h1>
+<button type="button" onClick="reloadFromCache()">Refresh!</button>
+<button type="button" onClick="reloadFromServer()">Refresh!</button>
+<h2>Hi</h2>
+<script>
+    'use strict';
+
+    // this code will produce a console log every second
+    // when count >= max, the interval is cancelled, and the logging will stop
+
+    var count = 0;
+    var max = 10;
+    var interval = 1000; // interval time in milliseconds
+
+    var intervalId = setInterval(function () {
+        if (count >= max) {
+            clearInterval(intervalId);
+            console.log('All done');
+        } else {
+            count++;
+            console.log('Repeating this line ' + count);
+        }
+    }, interval);
+
+    'use strict';
+
+    var delay = 3000; // delay time in milliseconds
+
+    var timeoutId = setTimeout(function () {
+        // alert('Hello it\'s been 3 seconds!');
+        // redirect browser to google.com
+
+        window.location = 'http://www.google.com';
+    }, delay);
+
+    // to cancel the timeout, you can call
+    // clearTimeout(timeoutId);
+    // prior to the delay expiring
+
+    // var delay2 = 2000;
+    //
+    // var to2 = setTimeout(function () {
+    //     clearTimeout(timeoutId);
+    //     alert("I have the stopped the alert!");
+    // }, delay2);
+
+
+
+
+
+    function reloadFromCache() {
+        location.reload(); // reload page, possibly from cache
+        alert("from cache, possibly")
+    }
+    function reloadFromServer() {
+        location.reload(true); // reload page from server
+        alert("from server")
+    }
+
+</script>
+</body>
+</html>
