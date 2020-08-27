@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Elements</title>
+</head>
+<body>
+<h1 id="me">Click ME!</h1>
+<h1 id="btn">Remove click</h1>
+<script>
+    'use strict';
+//TODO: Create a button with the id='me'
+//     Create a listener named 'listenToMe' that says, "You clicked me."
+//     Register the listener 'listenToMe' to be called when the element 'me' is clicked.
+
+    let listenToMe = function (event){
+        alert('OWWWW! Don\'t click so hard!!');
+    }
+    document.getElementById('me').addEventListener('click', listenToMe);
+
+    let button2 = document.getElementById('btn');
+
+
+    //TODO: Add a second button to you first lab.
+    // Write a second event listener to remove 'listenToMe' from the 'me'.
+        // Register the snd listener to be called when the 2nd button is clicked.
+        // Test you code.
+
+    let remover = function (){
+        me.removeEventListener("click", listenToMe);
+        alert('You have removed the clicking');
+    }
+    button2.addEventListener('click', remover);
+
+
+
+</script>
+</body>
+</html>
