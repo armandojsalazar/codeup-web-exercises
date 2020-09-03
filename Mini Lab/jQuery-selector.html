@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Selector</title>
+</head>
+<body>
+<h1>Example Page</h1>
+<div class="important">
+    <h3>NOTICE</h3>
+    <p>This is an important message!</p>
+</div>
+<div class="not-important">
+    <h2>Lorem Ipsum</h2>
+    <p>
+        Lorem ipsum dolor sit amet, incididunt ut <span class="important">labore et dolore magna aliqua.</span>, quis ut aliquip ex ea commodo.
+    </p>
+</div>
+<p class="important">This is also very important.</p>
+
+<script src="../js/jquery-2.2.4.js"></script>
+<script>
+    (function(){
+$().ready(function() {
+    //Changing by using id
+            var contents = $('#codeup').html();
+            $('#p1').html('<strong>JQuery Rocks!</strong>');
+            alert(contents);
+        //Changing CSS by Class Name
+$('.not-important').css('background-color', '#0F0');
+$('.important').css('background-color', '#FF0');
+// Changing CSS by Tag Name
+$('h3').css('color', '#F00');
+$('p').css('font-size', '14px');
+// Changing with Multiple Selectors
+$("h1, h3").css('background-color', '#00f');
+//Selecting and Changing all Selectors using '*'
+    $('*').css('border', '1px dashed #000')
+});
+    })();
+</script>
+</body>
+</html>

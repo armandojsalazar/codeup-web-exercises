@@ -19,7 +19,21 @@
             let heading2 = document.getElementsByTagName('h2');
             heading2[0].innerHTML = output;
         }
+
+        //Getting the Average on an Array Function
+        function average(array){
+            var total = 0;
+
+            for(var i = 0; i < array.length; i++){
+                total += array[i];
+            }
+            var avg = (total / array.length);
+            console.log(avg);
+        }
+
+        console.log(average([2,6,11,3,29,48]));
     })();
 </script>
+
 </body>
 </html>
