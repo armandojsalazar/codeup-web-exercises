@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test Page</title>
+</head>
+<body>
+<h1 id="codeup">Hello Codeup</h1>
+<br>
+<p id="p1">It's good to see you!</p>
+<p id="p2">It's good to see you too!</p>
+<p id="p3"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam distinctio dolores ducimus eaque enim, esse facilis inventore ipsum iure maiores molestiae necessitatibus neque nisi officiis quam quia soluta, totam!</span><span>Aliquam aspernatur at dolores doloribus eius enim error esse excepturi exercitationem ipsam ipsum, maiores modi molestias nostrum officia quaerat quos repellat rerum saepe sequi suscipit tempora temporibus velit voluptates voluptatum.</span></p>
+<script src="../js/jquery-2.2.4.js"></script>
+<script>
+    (function () { // IFEE
+        "use strict"
+        $().ready(function () {
+            $('#p1').click(function() {
+                $("#p1").css("background-color", "yellow");
+            });
+            $('#p2').dblclick(function() {
+                $("#p2").css("background-color", "blue");
+            });
+            $('#p3').hover(function() {
+                $("#p3").css("background-color", "green");
+            },
+            function(){
+                $("#p3").css("background-color", "purple")
+            });
+            $('#codeup').hover(
+                function() {
+                    fsize = $(this).css('font-size');
+                    alert(fsize)
+                    var newSize = Number.parseInt(fsize) * 1.2;
+                    $(this).css('font-size', newSize);
+                },
+                function() {
+                    $(this).css('font-size', fsize);
+                }
+            );
+        });
+    })();
+</script>
+</body>
+</html>

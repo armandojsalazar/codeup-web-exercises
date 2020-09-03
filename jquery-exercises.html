@@ -5,8 +5,8 @@
     <title>Learning jQuery</title>
 </head>
 <body>
-<h1 id="codeup">Learning jQuery</h1>
-<p class="codeup"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto harum molestiae officiis. Accusamus cumque eos libero minima modi molestiae nemo obcaecati praesentium quam recusandae! Exercitationem expedita iure non rem?</span><span class="">Accusantium dolor et eum itaque omnis repudiandae rerum sapiente? Alias, aperiam consequuntur debitis dicta dolores enim fugiat illum, inventore itaque magni minima necessitatibus placeat quis similique tempore veniam vitae, voluptate!</span><span>Animi beatae iure libero necessitatibus numquam quaerat, voluptates! Accusantium autem itaque maiores quo? Ea, temporibus veniam. Amet exercitationem explicabo itaque nobis numquam temporibus unde? Doloremque itaque iure provident quam voluptatibus!</span></p>
+<h1 id="head1">Learning jQuery</h1>
+<p class="p1"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto harum molestiae officiis. Accusamus cumque eos libero minima modi molestiae nemo obcaecati praesentium quam recusandae! Exercitationem expedita iure non rem?</span><span class="">Accusantium dolor et eum itaque omnis repudiandae rerum sapiente? Alias, aperiam consequuntur debitis dicta dolores enim fugiat illum, inventore itaque magni minima necessitatibus placeat quis similique tempore veniam vitae, voluptate!</span><span>Animi beatae iure libero necessitatibus numquam quaerat, voluptates! Accusantium autem itaque maiores quo? Ea, temporibus veniam. Amet exercitationem explicabo itaque nobis numquam temporibus unde? Doloremque itaque iure provident quam voluptatibus!</span></p>
 <div id="div1">
 <ul class="codeup">USL Championship Group D
     <li id="li1">San Antonio FC</li>
@@ -19,18 +19,34 @@
 
 <script src="js/jquery-2.2.4.js"></script>
 <!--<script src="https://code.jquery.com/jquery-2.2.4.js"></script>-->
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<!--<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>-->
 <script>
     (function (){
     $().ready(function(){
-        $('#li1').css('color', 'red')
+        /*$('#li1').css('color', 'red')
         $(".codeup").css("border", "5px solid black");
         });
         $('li').css('font-size', '20px');
+        $('li').css('background-color', 'orange');
+        $('li').css('color', 'green');
+
         $('h1, p, li').css('background-color', 'yellow');
         $('ul').css('font-size', '35px')
         var heading1 = $('h1').html();
-        alert(heading1);
+        alert(heading1);*/
+        $('#head1').click(function() {
+            $("#head1").css("background-color", "yellow");
+        });
+        $('.p1').dblclick(function() {
+            $(".p1").css("font-size", "30px");
+        });
+        $('li').hover(function() {
+                $("li").css("color", "red");
+            },
+            function(){
+                $("li").css("color", "black")
+            });
+            });
     })();
 
 </script>
