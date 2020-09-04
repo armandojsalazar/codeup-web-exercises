@@ -11,7 +11,7 @@
         "use strict";
         //Aug 26, 2020
         //Write a webpage with an empty h2 element and a script that counts from 1 to 10, and puts the indexies from the loop into the element.
-        let countDownTimer = 10;
+        /*let countDownTimer = 10;
         let output = ''
 
         for(let i = 1; i <= 10; i++) {
@@ -31,7 +31,41 @@
             console.log(avg);
         }
 
-        console.log(average([2,6,11,3,29,48]));
+        console.log(average([2,6,11,3,29,48]));*/
+
+//Write a function to take in an integer and write the factors of that integer to the webpage.
+
+        let getFactors = function (input) {
+            let answerArray = [];
+            for (let i = 1; i <= input; i++) {
+                if (input % i === 0) {
+                    answerArray.push(i);
+                }
+            }
+            return answerArray.join("<br>");
+        }
+        //Trant's code
+        showFactors(-8);
+        function showFactors(num) {
+            console.log('here2');
+            if ( isNaN(num)) {
+                $('#p1').html('The argument, ' + num + ', is not a number.');
+            } else if (typeof num !== 'number') {
+                $('#p1').html('The type of ' + num + ' is ' + typeof num + '. It should be a number ');
+            } else if (!Number.isInteger(num)) {
+                $('#p1').html('The argument, ' + num + ', is not an Integer.');
+            } else {
+                $('#p1').html(slowFactor(num));
+            }
+        };
+        function slowFactor(num) {
+            var output = 'List of factors of ' + num + ': '
+            if (num < 0) num *= -1;
+            for (var i = 1; i <= num; i++) {
+                if (num % i === 0 ) output += ' ' + i;
+            }
+            return output
+        }
     })();
 </script>
 

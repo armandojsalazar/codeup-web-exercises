@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery Fun</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style type="text/css">
+        .jumbotron {text-align: center;}
+        .red {background-color: red;}
+        .purple {background-color: mediumpurple;}
+        .orange {Background-color: darkorange}
+        .hidden {display:none;}
+        .cute {;
+        color: blueviolet;
+        text-decoration: underline;
+        font-family: cursive;}
+        .highlighted{
+            background-color: yellowgreen;
+        }
+    </style>
+
+</head>
+<body>
+<main class="container">
+    <section class="jumbotron">
+        <h1 class="head1">Fun with jQuery!</h1>
+        <button id="btn1" type="button" data-dash="1" class="btn btn-default">#btn1</button>
+        <button id="btn2" type="button" data-dash="2" class="btn btn-default">#btn2</button>
+        <button id="btn3" type="button" data-dash="3" class="btn btn-default">#btn3</button>
+        <button id="btn4" type="button" data-dash="4" class="btn btn-default">#btn4</button>
+    </section>
+    <section class="col-xs-3">
+        <article id="panel1" class="panel panel-primary">
+            <div class="panel-heading">
+                #panel1
+            </div>
+            <div class="panel-body"> Content
+            </div>
+
+        </article>
+    </section>
+    <section class="col-xs-3">
+        <article id="panel2" class="panel panel-primary">
+            <div class="panel-heading">
+                #panel2
+            </div>
+            <div class="panel-body"> Content
+            </div>
+
+        </article>
+    </section>
+    <section class="col-xs-3">
+        <article id="panel3" class="panel panel-primary">
+            <div class="panel-heading">
+                #panel3
+            </div>
+            <div class="panel-body"> Content
+            </div>
+
+        </article>
+    </section>
+    <section class="col-xs-3">
+        <article id="panel4" class="panel panel-primary">
+            <div class="panel-heading">
+                #panel4
+            </div>
+            <div class="panel-body"> Content
+            </div>
+
+        </article>
+    </section>
+    <section id="list">
+        <ul>
+            <li>Puppies</li>
+            <li>Bunnies</li>
+            <li>Chickens</li>
+        </ul>
+    </section>
+</main>
+<!-- jQuery and bootstrap -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script>
+
+    $(document).ready(function() {
+
+        $('section').hide().delay(1500).fadeIn(2000);
+        $('h1').click(function() {
+            $(this).fadeOut(200).delay(200).hide(200).delay(200).toggle(200).slideToggle(200).delay(200).slideToggle(200);
+        });
+
+        $("#btn1").click(function() {
+            $('#panel1').toggleClass('purple');
+        });
+        $("#btn2").click(function() {
+            $('#panel2').toggleClass('red');
+        });
+        $("#btn3").click(function() {
+           // $('#panel3').toggleClass('hidden');
+           $('#panel3').fadeOut(1500).fadeIn(1500).fadeOut(1500).fadeIn(1500);
+        });
+        $("#btn4").click(function() {
+            $('#panel4').toggleClass('panel-primary').toggleClass('panel-danger');
+
+        });
+        $('.jumbotron').css('background-color', 'blue');
+        $('.head1').css('color', 'black');
+
+        $('.btn').each(function () {
+            var id = $(this).attr("data-id");
+            $(this).dblclick(function () {
+                $("#panel" + id).toggleClass('hidden')
+            });
+
+        });
+        $('ul').children().addClass("cute");
+        $('li').last().addClass("highlighted");
+
+        $('li').click(function () {
+            $(this).next().css({
+                fontSize: (Number.parseInt($(this).next().css('font-size')) * 1.2) + "px"})
+            });
+        });
+
+
+</script>
+</body>
+</html>

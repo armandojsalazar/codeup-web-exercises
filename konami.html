@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+<h1>Konami Code</h1>
+<p id="p1">You have 3 lives</p>
+
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+    let cheatCode = [38,38,40,40,37,39,37,39,66,65,13];
+    let typedCode= []
+    $(document).keyup(function(event){
+        console.log(event.keyCode);
+        typedCode.push(event.keyCode)
+
+        if(typedCode.join(',') === cheatCode.join(',')){
+            $('#p1').html('You now have 33 lives!');
+            alert('You gained 30 lives!!!')
+        }else if(typedCode > 11 && typedCode.join(',') !== cheatCode.join(',')) {
+            alert('Bad Code, try again');
+        }
+
+    });
+</script>
+</body>
+</html>

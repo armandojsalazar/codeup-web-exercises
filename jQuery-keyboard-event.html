@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Keyboard Event Lesson</title>
+</head>
+<body>
+<h1>jQuery Keyboard Lesson</h1>
+<p>Please type something into this form:</p>
+<form>
+    <input type="text" id="textfield" name="textfield" placeholder="Type Here"/>
+</form>
+
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+    $().ready(function(){
+        $('#textfield').click(function(){
+        alert('You clicked the text field');
+    });
+        $('#textfield').keypress(function() {
+        alert('A key was pushed down');
+    });
+
+        // $('#textfield').off('click')
+
+    })
+
+</script>
+</body>
+</html>
