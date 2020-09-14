@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+    </tr>
+    </thead>
+    <tbody id="products"></tbody>
+</table>
+
+<script src="../js/jquery-2.2.4.js"></script>
+<script>
+    $.get("../data/9-11-pushup.json").done(function(){
+        var innerHTML = "";
+
+        var findTheGreatest = function(items) {
+            var greatest = 0;
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].price > greatest) {
+                    greatest = items[i].price
+                }
+            }
+        }
+        console.log(findTheGreatest(items))
+    });
+</script>
+</body>
+</html>

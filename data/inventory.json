@@ -4,6 +4,7 @@
         "quantity": 25,
         "categories": [
             "tool"
+
         ],
         "price": 20
     }, {
@@ -11,7 +12,8 @@
         "quantity": 5,
         "categories": [
             "tool",
-            "powered"
+            "powered",
+            "wireless"
         ],
         "price": 100
     }, {

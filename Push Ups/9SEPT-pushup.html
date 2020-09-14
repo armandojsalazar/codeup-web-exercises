@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Push up</title>
+</head>
+<body>
+<label for="input">Input Message:</label>
+<input type="text" id="input" name="Input" placeholder="Enter Message here">
+<button id='button' type="submit">Send Message</button>
+<br>
+
+<div id="output"></div>
+<script src="../js/jquery-2.2.4.js"></script>
+<script>
+    $('#button').click(function (){
+        $('#output').html($('#input').val())
+    });
+</script>
+</body>
+</html>

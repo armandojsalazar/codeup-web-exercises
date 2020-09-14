@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+<body>
+<h1>Weather Map</h1>
+<div class="d-flex justify-content-center">
+<label for="inputCity">Search:</label>
+<input type="text" id="inputCity" name="search" placeholder="Enter City Name">
+    <button id="searchCity">Search</button>
+<label for="inputZipcode">or Zip Code:</label>
+<input type="text" id="inputZipcode" name="zipcode" placeholder="Enter Zip Code">
+<button id="searchZipcode">Search</button>
+<br>
+</div>
+<div class="row d-flex justify-content-center mt-5">
+    <section id="currentTemp" class="card col-2 mx-1 p-0" style="width: 18rem;"></section>
+    <section id="forecast2" class="card col-2 mx-1 p-0" style="width: 18rem;"></section>
+    <section id="forecast3" class="card col-2 mx-1 p-0" style="width: 18rem;"></section>
+    <section id="forecast4" class="card col-2 mx-1 p-0" style="width: 18rem;"></section>
+    <section id="forecast5" class="card col-2 mx-1 p-0" style="width: 18rem;"></section>
+</div>
+
+
+<div id='map' style='width: 450px; height: 450px;'></div>
+
+<script src="js/keys.js"></script>
+<script src="js/weather-map.js"></script>
+<script src="js/jquery-2.2.4.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+
+
+
+
+
+
+<script>
+    $().ready(function (){
+        var innerHTML = '';
+        var innerHTML2 = '';
+        var innerHTML3 = '';
+        var innerHTML4 = '';
+        var innerHTML5 = '';
+
+
+        let inputCity = '';
+        $('#searchCity').click(function(){
+            inputCity = $('#inputCity').val();
+            getWeather(inputCity);
+            getForecastWeather(inputCity);
+        });
+//Current Weather
+        function getWeather(city) {
+            $.get("http://api.openweathermap.org/data/2.5/weather", {
+                APPID: OPENWEATHERMAP_API_KEY,
+                q: city + ", US",
+                units: "imperial"
+            }).done(function (data) {
+                console.log(data);
+
+                innerHTML += '<h5 class="card-title">' + data.name + '</h5>'
+                innerHTML += '<p class="card-text">' + '*Current Temperature*' + '</p>' + '<br>'
+                innerHTML += '<p class="card-text">' + 'Temperature: ' + '<strong>' + data.main.temp + ' F' + '</strong>' + '</p>'
+                innerHTML += '<p class="card-text">' + 'High: ' + data.main.temp_max + ' F' + '</p>'
+                innerHTML += '<p class="card-text">' + 'Low: ' + data.main.temp_min + ' F' + '</p>'
+                innerHTML += '<p class="card-text">' + 'Humidity: ' + data.main.humidity + '%' + '</p>'
+                innerHTML += '<p class="card-text">' + 'Forecast: ' + data.weather[0].description + '</p>'
+
+                $('#currentTemp').html(innerHTML);
+
+                currentLong = data.coord.lon
+                currentLat = data.coord.lat
+                console.log(currentLat);
+                console.log(currentLong);
+
+                let cityMarker = function () {
+                    geocode(inputCity, MAPBOX_TOKEN)
+                        .then(function(result) {
+                            let inputPopUp = new mapboxgl.Marker()
+                                .setLngLat([currentLong, currentLat])
+                                .addTo(map)
+                        });
+                }
+                cityMarker()
+            });
+
+        }
+
+
+// 4 day forecast
+        function getForecastWeather(city) {
+            $.get("http://api.openweathermap.org/data/2.5/forecast", {
+                APPID: OPENWEATHERMAP_API_KEY,
+                q: city + ", US",
+                units: "imperial"
+            }).done(function (data) {
+                console.log(data)
+
+
+                innerHTML2 += '<h5 class="card-title">' + data.city.name + '</h5>' + '<br>'
+                innerHTML2 += '<p class="card-text">' + 'Time & Date: ' + data.list[5].dt_txt + '</p>'
+                innerHTML2 += '<p class="card-text">' + 'Humidity: ' + data.list[5].main.humidity + '%' +  '</p>'
+                innerHTML2 += '<p class="card-text">' + 'Temperature: ' + data.list[5].main.temp + ' F' + '</p>'
+                innerHTML2 += '<p class="card-text">' + 'High: ' + data.list[5].main.temp_max + ' F' + '</p>'
+                innerHTML2 += '<p class="card-text">' + 'Low: ' + data.list[5].main.temp_min + ' F' + '</p>'
+                innerHTML2 += '<p class="card-text">' + 'Forecast: ' + data.list[5].weather[0].description + '</p>'
+
+
+                innerHTML3 += '<h5 class="card-title">' + data.city.name + '</h5>' + '<br>'
+                innerHTML3 += '<p class="card-text">' + 'Time & Date: ' + data.list[13].dt_txt + '</p>'
+                innerHTML3 += '<p class="card-text">' + 'Humidity: ' + data.list[13].main.humidity + '%' +  '</p>'
+                innerHTML3 += '<p class="card-text">' + 'Temperature: ' + data.list[13].main.temp + ' F' + '</p>'
+                innerHTML3 += '<p class="card-text">' + 'High: ' + data.list[13].main.temp_max + ' F' + '</p>'
+                innerHTML3 += '<p class="card-text">' + 'Low: ' + data.list[13].main.temp_min + ' F' + '</p>'
+                innerHTML3 += '<p class="card-text">' + 'Forecast: ' + data.list[13].weather[0].description + '</p>'
+
+
+                innerHTML4 += '<h5 class="card-title">' + data.city.name + '</h5>' + '<br>'
+                innerHTML4 += '<p class="card-text">' + 'Time & Date: ' + data.list[21].dt_txt + '</p>'
+                innerHTML4 += '<p class="card-text">' + 'Humidity: ' + data.list[21].main.humidity + '%' +  '</p>'
+                innerHTML4 += '<p class="card-text">' + 'Temperature: ' + data.list[21].main.temp + ' F' + '</p>'
+                innerHTML4 += '<p class="card-text">' + 'High: ' + data.list[21].main.temp_max + ' F' + '</p>'
+                innerHTML4 += '<p class="card-text">' + 'Low: ' + data.list[21].main.temp_min + ' F' + '</p>'
+                innerHTML4 += '<p class="card-text">' + 'Forecast: ' + data.list[21].weather[0].description + '</p>'
+
+
+                innerHTML5 += '<h5 class="card-title">' + data.city.name + '</h5>' + '<br>'
+                innerHTML5 += '<p class="card-text">' + 'Time & Date:' + data.list[29].dt_txt + '</p>'
+                innerHTML5 += '<p class="card-text">' + 'Humidity: ' + data.list[29].main.humidity + '%' +  '</p>'
+                innerHTML5 += '<p class="card-text">' + 'Temperature: ' + data.list[29].main.temp + ' F' + '</p>'
+                innerHTML5 += '<p class="card-text">' + 'High: ' + data.list[29].main.temp_max + ' F' + '</p>'
+                innerHTML5 += '<p class="card-text">' + 'Low: ' + data.list[29].main.temp_min + ' F' + '</p>'
+                innerHTML5 += '<p class="card-text">' + 'Forecast: ' + data.list[29].weather[0].description + '</p>'
+
+
+                $('#forecast2').html(innerHTML2);
+                $('#forecast3').html(innerHTML3);
+                $('#forecast4').html(innerHTML4);
+                $('#forecast5').html(innerHTML5);
+
+
+            });
+        }
+
+        $('section').css('background-color', 'beige');
+        $('p').css('font-family', 'Cursive');
+        $('body').css('background-color', 'skyblue')
+    });
+</script>
+<!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+</body>
+</html>

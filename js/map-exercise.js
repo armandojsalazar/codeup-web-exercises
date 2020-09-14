@@ -4,7 +4,7 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/satellite-streets-v11', // stylesheet location
     center: [-98.4936, 29.4241], // starting position [lng, lat]
-    zoom: 8 // starting zoom
+    zoom: 15 // starting zoom
 });
 
 //Favorite #1

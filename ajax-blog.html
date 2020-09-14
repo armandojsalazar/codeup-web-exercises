@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax Blog</title>
+</head>
+<body>
+<h1>Blog</h1>
+<div id="post"></div>
+
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    $.get("data/blog.json").done(function (data, status, jqXhr) {
+        console.log("Request status: " + status);
+        console.log("Data returned from server:");
+        console.log(data);
+
+        var innerHTML = '';
+        data.forEach(function (blog){
+            innerHTML += '<h2>' + 'Title: ' + blog.title + '<br>' + '</h2>';
+            innerHTML += blog.content +'<br>';
+            innerHTML += '<br>' + '<strong>Category: </strong>' + blog.categories + '<br>';
+            innerHTML += '<br>' + '<strong>Written on: </strong>' + blog.date +'<br>';
+
+            innerHTML += '<br>';
+            $('#post').html(innerHTML);
+        });
+    });
+</script>
+
+</body>
+</html>
