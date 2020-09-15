@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FizzBuzz</title>
+</head>
+<body>
+
+<h1>Fizz or Buzz or both!?</h1>
+
+<button id="fizz">Click ME!</button>
+<br>
+<button id="buzz">Click ME NEXT!</button>
+<br>
+<button id="fizzbuzz">Click me if you want.</button>
+<br>
+
+<p id="fizz1"></p>
+<br>
+<p id="buzz1"></p>
+<br>
+<p id="fizzbuzz1"></p>
+<br>
+
+<h2>Fizz Buzz number</h2>
+<input type="num" id="input">
+<button id="button">FizzBuzz</button>
+
+<div id="output"></div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="../js/fizzbuzz.js"></script>
+
+<script>
+    $().ready(function(){
+        $('#fizz').click(function(){
+            $('#fizz1').append(" I fizzed! ")
+        });
+
+        $('#buzz').click(function(){
+            $('#buzz1').append(" I buzzed! ")
+        });
+
+        $('#fizzbuzz').click(function(){
+            $('#fizzbuzz1').append(" I fizzed and buzzed! ")
+        });
+
+
+    });
+
+</script>
+</body>
+</html>

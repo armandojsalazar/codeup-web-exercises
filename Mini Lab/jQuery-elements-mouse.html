@@ -28,7 +28,7 @@
             });
             $('#codeup').hover(
                 function() {
-                    fsize = $(this).css('font-size');
+                    var fsize = $(this).css('font-size');
                     alert(fsize)
                     var newSize = Number.parseInt(fsize) * 1.2;
                     $(this).css('font-size', newSize);

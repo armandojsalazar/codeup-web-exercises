@@ -49,6 +49,9 @@
         var innerHTML4 = '';
         var innerHTML5 = '';
 
+        let inputMarker = new mapboxgl.Marker()
+            .setLngLat([currentLong, currentLat])
+            .addTo(map);
 
         let inputCity = '';
         $('#searchCity').click(function(){
@@ -80,15 +83,9 @@
                 console.log(currentLat);
                 console.log(currentLong);
 
-                let cityMarker = function () {
-                    geocode(inputCity, MAPBOX_TOKEN)
-                        .then(function(result) {
-                            let inputPopUp = new mapboxgl.Marker()
-                                .setLngLat([currentLong, currentLat])
-                                .addTo(map)
-                        });
-                }
-                cityMarker()
+
+
+
             });
 
         }
