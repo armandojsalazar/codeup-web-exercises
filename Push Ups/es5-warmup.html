@@ -12,13 +12,22 @@
 </main>
 
 <script>
-    var name = {lName: "smith"};
+    "use script"
+    var lastName = {lName: "smith"};
 
-    function fullName(){
-        for(var i = 0; i < 3; i++){
+    var divs = document.querySelectorAll('div')
+        console.log(divs);
 
-        }
+    function setCase(str){
+        return str[0].toUpperCase() + str.substring(1).toLowerCase();
     }
+
+        for(var i = 0; i < divs.length; i+=1){
+            // console.log(divs[i].innerText)
+        divs[i].innerText = setCase(divs[i].innerText) + ' ' + setCase(lastName.lName);
+        }
+
+
 
 </script>
 </body>
