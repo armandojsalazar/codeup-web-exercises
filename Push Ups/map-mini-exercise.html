@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map Filter Reduce Mini Exercise</title>
+</head>
+<body>
+
+<script>
+    "use strict";
+
+    // TODO: Given the following array, complete the todos...
+
+    const dogs = [
+        {
+            name: 'bubbles',
+            age: 10,
+            isTrained: false
+        },
+        {
+            name: 'lexie',
+            age: 3,
+            isTrained: true
+        },
+        {
+            name: 'doggy',
+            age: 5,
+            isTrained: false
+        }
+    ];
+
+    // TODO: using map, create a new array of dog names from the dogs array
+    const dogNames = dogs.map(dog => dog.name)
+    console.log(dogNames)
+    // TODO: using map, create a new array of dog ages from the dogs array
+const dogAges = dogs.map(age => age.age)
+    console.log(dogAges)
+    // TODO: using map, create a new array of dog objects from the dogs array that only have name and age property values
+const   dogAgeAndName = dogs.map(nameAndAge => nameAndAge)
+    console.log(dogAgeAndName)
+</script>
+
+</body>
+</html>
