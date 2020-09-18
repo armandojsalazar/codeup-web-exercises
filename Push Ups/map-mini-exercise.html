@@ -36,8 +36,15 @@
 const dogAges = dogs.map(age => age.age)
     console.log(dogAges)
     // TODO: using map, create a new array of dog objects from the dogs array that only have name and age property values
-const   dogAgeAndName = dogs.map(nameAndAge => nameAndAge)
+const   dogAgeAndName = dogs.map(({name, age}) => ({name, age}))
     console.log(dogAgeAndName)
+
+    const newDog = dogs.map((dog) => {
+        return {
+            name: dog.name,
+            age: dog.age
+        }
+    })
 </script>
 
 </body>

@@ -120,9 +120,44 @@
         // ========= REDUCE
         /*
             From an array, use reduce to transform the elements of the array into another single value of any type
-         */
 
-        const fruits3 = ['apple', 'orange', 'banana'];
+            Array.reduce(function(accumulator, currentValue) {
+
+            }, initialValue); [] or {}
+         */
+/*        const numbers = [1, 2, 3];
+        const total = numbers.reduce(function(accumulator, currentValue){
+            return accumulator + currentValue;
+        }, 0);*/
+
+        // const fruits3 = ['apple', 'orange', 'banana'];
+
+        // const largerFruitStr = fruits3.reduce(function(accum, curr){
+        //
+        //     /*
+        //     * no | accum | curr
+        //     * 1  | ''    | 'apple'
+        //     * 2  | 'apple'| 'orange'
+        //     * 3  | 'appleorange' | 'banana'
+        //     * return 'appleorangebanana'
+        //     * */
+        //
+        //
+        //     return accum + curr;
+        // }, '');
+        // console.log(largerFruitStr)
+
+        const fruits3 = ['apple', 'pineapple', 'banana'];
+        const longestFruit = fruit3.reduce((accum, curr) => {
+            if(curr.lenght > accum.length) {
+                return curr;
+            } else {
+                return accum
+            }
+        }, '');
+        console.log(longestFruit;)
+
+
 
         // concatenate all fruit names into one larger string
         // const smoothie = fruits3.reduce((total, current) => total += current );
