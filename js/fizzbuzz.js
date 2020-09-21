@@ -33,6 +33,24 @@ while (i <= num) {
 
 // fizzbuzz(30)
 
+
+// used the gs6 to refactor the fizz buzz
+const fizzBuzz = (num = 30) => {
+    for(let i = 1; i <=num; i++) {
+        if (i % 15 === 0)
+            console.log(`fizzbuzz`);
+        else if (i % 3 === 0)
+            console.log(`fiz`);
+        else if (i % 5 === 0)
+            console.log(`buzz`);
+        console.log(`${i}`)
+    }
+};
+fizzBuzz(50);
+fizzBuzz();
+
+
+/*
 $().ready(function(){
     $('#button').click(function (){
         var num = $('#input').val();
@@ -51,4 +69,4 @@ $().ready(function(){
         }
         // $('#output').append('')
     });
-});
+});*/
