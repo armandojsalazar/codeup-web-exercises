@@ -65,7 +65,7 @@ const userNames = users.reduce((str, user) => {
 }, 'Your instructors are: ');
 console.log(userNames);
 
-const listLanguages = users.reduce((str, user) => {
-    if(user.languages === )
-}, '')
-console.log(listLanguages)
+// const listLanguages = users.reduce((str, user) => {
+//     if(user.languages === )
+// }, '')
+// console.log(listLanguages)
