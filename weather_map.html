@@ -81,6 +81,7 @@
                 currentLat = data.coord.lat
                 console.log(currentLat);
                 console.log(currentLong);
+                map.flyTo({center : [currentLong, currentLat]});
 
 
 
