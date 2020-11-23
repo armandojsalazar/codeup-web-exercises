@@ -43,11 +43,7 @@
 
 <script>
     $().ready(function (){
-        var innerHTML = '';
-        var innerHTML2 = '';
-        var innerHTML3 = '';
-        var innerHTML4 = '';
-        var innerHTML5 = '';
+
 
         let inputMarker = new mapboxgl.Marker()
             .setLngLat([currentLong, currentLat])
@@ -67,6 +63,9 @@
                 units: "imperial"
             }).done(function (data) {
                 console.log(data);
+
+                var innerHTML = '';
+
 
                 innerHTML += '<h5 class="card-title">' + data.name + '</h5>'
                 innerHTML += '<p class="card-text">' + '*Current Temperature*' + '</p>' + '<br>'
@@ -99,7 +98,10 @@
                 units: "imperial"
             }).done(function (data) {
                 console.log(data)
-
+                var innerHTML2 = '';
+                var innerHTML3 = '';
+                var innerHTML4 = '';
+                var innerHTML5 = '';
 
                 innerHTML2 += '<h5 class="card-title">' + data.city.name + '</h5>' + '<br>'
                 innerHTML2 += '<p class="card-text">' + 'Time & Date: ' + data.list[5].dt_txt + '</p>'
